@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практична робота - JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .task {
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        .result {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Практична робота: Умовні конструкції, цикли, функції в JavaScript</h1>
+        
+        <div class="task">
+            <h2>Завдання 1: Перевірка віку користувача</h2>
+            <button onclick="task1()">Запустити Завдання 1</button>
+        </div>
+
+        <div class="task">
+            <h2>Завдання 2: Виведення парних чисел</h2>
+            <button onclick="task2()">Запустити Завдання 2</button>
+            <div id="task2-result" class="result"></div>
+        </div>
+
+        <div class="task">
+            <h2>Завдання 3: Обчислення факторіалу числа</h2>
+            <button onclick="task3()">Запустити Завдання 3</button>
+            <div id="task3-result" class="result"></div>
+        </div>
+
+        <div class="task">
+            <h2>Завдання 4: Калькулятор</h2>
+            <button onclick="task4()">Запустити Завдання 4</button>
+        </div>
+
+        <div class="task">
+            <h2>Завдання 5: Гра "Вгадай число"</h2>
+            <button onclick="task5()">Запустити Завдання 5</button>
+        </div>
+    </div>
+
+    <script>
+        function task1() {
+            let age = prompt("Введіть ваш вік:");
+            age = Number(age);
+            
+            if (isNaN(age)) {
+                alert("Будь ласка, введіть коректний вік!");
+                return;
+            }
+            
+            if (age < 18) {
+                alert("Вам заборонено вхід");
+            } else if (age >= 18 && age <= 65) {
+                alert("Ласкаво просимо!");
+            } else if (age > 65) {
+                alert("Будь ласка, будьте обережні!");
+            }
+        }
+
+        function task2() {
+            let n = prompt("Введіть число n (для виведення парних чисел від 2 до n):");
+            n = Number(n);
+            
+            if (isNaN(n) || n < 2) {
+                document.getElementById("task2-result").innerHTML = "Будь ласка, введіть число більше або рівне 2";
+                console.log("Будь ласка, введіть число більше або рівне 2");
+                return;
+            }
+            
+            let evenNumbers = [];
+            for (let i = 2; i <= n; i++) {
+                if (i % 2 === 0) {
+                    evenNumbers.push(i);
+                    console.log(i); 
+                }
+            }
+      
+            if (evenNumbers.length > 0) {
+                document.getElementById("task2-result").innerHTML = `Парні числа від 2 до ${n}: ${evenNumbers.join(", ")}`;
+            } else {
+                document.getElementById("task2-result").innerHTML = `Немає парних чисел у діапазоні від 2 до ${n}`;
+            }
+        }
+        function task3() {
+            let n = prompt("Введіть число для обчислення факторіалу:");
+            n = Number(n);
+            
+            if (isNaN(n) || n < 0) {
+                document.getElementById("task3-result").innerHTML = "Будь ласка, введіть невід'ємне число";
+                console.log("Будь ласка, введіть невід'ємне число");
+                return;
+            }
+            
+            let factorial = 1;
+            let i = 1;
+            
+            while (i <= n) {
+                factorial *= i;
+                i++;
+            }
+            
+            console.log(`${n}! = ${factorial}`);
+            document.getElementById("task3-result").innerHTML = `${n}! = ${factorial}`;
+        }
+
+        function task4() {
+       
+            let a = prompt("Введіть перше число:");
+            a = Number(a);
+           
+            let b = prompt("Введіть друге число:");
+            b = Number(b);
+            
+            let operation = prompt("Введіть операцію (+, -, *, /):");
+            
+            if (isNaN(a) || isNaN(b)) {
+                alert("Будь ласка, введіть коректні числа!");
+                return;
+            }
+            
+            let result;
+        
+            switch(operation) {
+                case '+':
+                    result = a + b;
+                    alert(`${a} + ${b} = ${result}`);
+                    break;
+                case '-':
+                    result = a - b;
+                    alert(`${a} - ${b} = ${result}`);
+                    break;
+                case '*':
+                    result = a * b;
+                    alert(`${a} * ${b} = ${result}`);
+                    break;
+                case '/':
+                    if (b === 0) {
+                        alert("Помилка: Ділення на нуль!");
+                    } else {
+                        result = a / b;
+                        alert(`${a} / ${b} = ${result}`);
+                    }
+                    break;
+                default:
+                    alert("Невідома операція! Використовуйте +, -, *, /");
+            }
+        }
+    </script>
+</body>
+</html>
