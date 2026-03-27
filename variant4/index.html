@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фільтр та сортування списку</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Фільтр та сортування</h1>
+        
+        <div class="controls">
+            <input type="text" id="searchInput" placeholder="Пошук..." autocomplete="off">
+            <select id="sortSelect">
+                <option value="alphabet">Сортувати за алфавітом (А-Я)</option>
+                <option value="alphabetDesc">Сортувати за алфавітом (Я-А)</option>
+                <option value="date">Сортувати за датою (спочатку нові)</option>
+                <option value="dateDesc">Сортувати за датою (спочатку старі)</option>
+            </select>
+        </div>
+
+        <ul id="itemList">
+            <li data-date="2024-01-15">Яблуко</li>
+            <li data-date="2024-01-10">Банан</li>
+            <li data-date="2024-01-20">Апельсин</li>
+            <li data-date="2024-01-05">Груша</li>
+            <li data-date="2024-01-18">Ківі</li>
+            <li data-date="2024-01-12">Манго</li>
+        </ul>
+
+        <div id="noResults" class="no-results hidden">
+             Нічого не знайдено
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
