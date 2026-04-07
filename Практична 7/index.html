@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота - Форма</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Реєстрація</h2>
+
+<form id="form">
+    <input type="text" id="name" placeholder="Ім'я"><br>
+    <input type="email" id="email" placeholder="Email"><br>
+    <input type="text" id="phone" placeholder="Телефон"><br>
+    <input type="password" id="password" placeholder="Пароль"><br>
+
+    <button type="submit">Зберегти</button>
+</form>
+
+<h2>Авторизація</h2>
+
+<input type="email" id="loginEmail" placeholder="Email">
+<input type="password" id="loginPassword" placeholder="Пароль">
+<button onclick="login()">Увійти</button>
+
+<h2>Редагування</h2>
+
+<input type="text" id="editName" placeholder="Нове ім'я">
+<input type="text" id="editPhone" placeholder="Новий телефон">
+<button onclick="updateUser()">Оновити</button>
+
+<br><br>
+<button onclick="clearData()">Очистити дані</button>
+
+<script src="script.js"></script>
+
+</body>
+</html>
